@@ -1,0 +1,46 @@
+package com.ds.pageLayer;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+
+public class LoginPage {
+	
+	public LoginPage(WebDriver driver)
+	{
+		PageFactory.initElements(driver, this);
+	}
+	
+	@FindBy(xpath = "//input[@name='email']")
+	private WebElement email_txtbox;
+	
+	@FindBy(xpath = "//input[@name='password']")
+	private WebElement password_txtbox;
+	
+	@FindBy(xpath = "//button[@class='btn btn-dark btn-block']")
+	private WebElement login_bttn;
+	
+	@FindBy(xpath ="//a[@class='fw-medium text-primary']")
+	private WebElement signup_link;
+	
+	
+	public void enterEmailAddress(String email)
+	{
+		email_txtbox.sendKeys(email);
+	}
+	public void enterPassword(String password)
+	{
+		password_txtbox.sendKeys(password);
+	}
+	public void clickOnLoginButton()
+	{
+		login_bttn.click();
+	}
+	
+	public void clickONSignUpLink()
+	{
+		signup_link.click();
+	}
+
+}
